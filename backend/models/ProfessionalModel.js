@@ -7,6 +7,7 @@ const portfolioItemSchema = new mongoose.Schema({
 
 const professionalSchema = mongoose.Schema(
 	{
+		// The manual 'id' field has been removed. MongoDB's _id will be the unique identifier.
 		name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
@@ -35,6 +36,16 @@ professionalSchema.pre("save", async function (next) {
 professionalSchema.methods.matchPassword = async function (enteredPassword) {
 	return await bcrypt.compare(enteredPassword, this.password);
 };
+
+// This transform correctly converts the database _id to a user-friendly id in JSON responses
+professionalSchema.set("toJSON", {
+	transform: (document, returnedObject) => {
+		returnedObject.id = returnedObject._id.toString();
+		delete returnedObject._id;
+		delete returnedObject.__v;
+		delete returnedObject.password;
+	},
+});
 
 const Professional = mongoose.model("Professional", professionalSchema);
 export default Professional;
