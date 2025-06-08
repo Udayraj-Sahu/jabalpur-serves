@@ -1,0 +1,131 @@
+/* src/App.css */
+.App {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+	.App {
+		padding: 3rem 1.5rem;
+	}
+}
+
+.App-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+	.App-header {
+		margin-bottom: 3rem;
+	}
+}
+
+.App-header h1 {
+	font-size: 2.25rem;
+	font-weight: 700;
+	color: #402a23;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.App-header h1 {
+		font-size: 2.75rem;
+	}
+}
+
+.App-header p {
+	font-size: 1.1rem;
+	color: #7a6a64;
+	max-width: 600px;
+	margin: 0.5rem auto 1.5rem;
+}
+
+/* Styles for the navigation buttons container */
+.main-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.visitor-controls,
+.user-controls {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+/* Base style for all nav links/buttons */
+.nav-link {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1rem;
+	padding: 10px 20px;
+	border-radius: 8px;
+	border: 2px solid transparent;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	background: transparent;
+	font-family: "Inter", sans-serif; /* Ensure font is inherited */
+}
+
+/* Primary Button Style (Register) */
+.nav-link.primary {
+	background-color: #d95f43;
+	color: white;
+	border-color: #d95f43;
+}
+
+.nav-link.primary:hover {
+	background-color: #e67e22;
+	border-color: #e67e22;
+	transform: translateY(-2px);
+}
+
+/* Secondary Button Style (Log In) */
+.nav-link.secondary {
+	color: #d95f43;
+	border-color: #d95f43;
+}
+
+.nav-link.secondary:hover {
+	background-color: #d95f43;
+	color: white;
+	transform: translateY(-2px);
+}
+
+/* Logged-in user styles */
+.nav-user {
+	color: #402a23;
+	font-weight: 500;
+}
+
+/* Logout button style */
+.nav-link[onclick] {
+	color: #d95f43;
+}
+.nav-link[onclick]:hover {
+	color: #e67e22;
+	text-decoration: underline;
+}
+
+.back-button {
+	display: inline-block;
+	margin-bottom: 2rem;
+	background-color: #d95f43;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.2s;
+}
+
+.back-button:hover {
+	background-color: #e67e22;
+}

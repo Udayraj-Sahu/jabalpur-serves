@@ -1,0 +1,56 @@
+/* src/components/ProfessionalCard.css */
+.professional-card {
+	background-color: #fff;
+	border: 1px solid #dcd1c0; /* Warm grey border */
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	width: 300px;
+	transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.professional-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.card-header h3 {
+	margin: 0;
+	color: #343a40;
+}
+
+.verified-badge {
+	/* CHANGED: A warm, earthy green */
+	background-color: #5a7d5a;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 4px 8px;
+	border-radius: 12px;
+}
+.card-phone {
+	margin: 0;
+	font-size: 16px;
+	color: #555;
+}
+
+.card-bio {
+	font-size: 14px;
+	color: #6c757d;
+	font-style: italic;
+	margin-top: 10px;
+	border-top: 1px solid #f1f3f5; /* Lighter separator */
+	padding-top: 10px;
+}
+
+.professional-card-link {
+	text-decoration: none;
+	color: inherit;
+}
