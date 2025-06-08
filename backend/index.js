@@ -4,18 +4,24 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import categoryRoutes from "./routes/categoryRoutes.js"; // 1. Import mongoose
-import professionalRoutes from './routes/professionalRoutes.js';
-import userRoutes from './routes/userRoutes.js';
+import professionalRoutes from "./routes/professionalRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-app.use(cors());
+const corsOptions = {
+	origin: [
+		"http://localhost:5173", // For local development
+		"https://jabalpur-serves.vercel.app/", // <-- PASTE YOUR VERCEL URL HERE
+	],
+	optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/categories", categoryRoutes);
-app.use('/api/professionals', professionalRoutes);
-app.use('/api/users', userRoutes);
+app.use("/api/professionals", professionalRoutes);
+app.use("/api/users", userRoutes);
 
 // 2. Add Mongoose connection logic
 mongoose

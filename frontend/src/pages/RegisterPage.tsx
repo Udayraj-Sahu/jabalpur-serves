@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Form.css";
 import { useAuth } from "../contexts/AuthContext";
 import type { UserInfo } from "../types";
+import { API_BASE_URL } from "../config";
 
 const RegisterPage = () => {
 	// Use a single state object for the form data
@@ -42,16 +43,13 @@ const RegisterPage = () => {
 
 		try {
 			// Send the entire formData state object to the backend
-			const response = await fetch(
-				"http://localhost:5000/api/users/register",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(formData),
-				}
-			);
+			const response = await fetch(`${API_BASE_URL}/api/users/register`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
 
 			const data: UserInfo | { message: string } = await response.json();
 

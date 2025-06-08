@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ProfessionalList from "../components/ProfessionalList";
 import type { Professional } from "../types";
+import { API_BASE_URL } from '../config';
 
 const ProfessionalsPage = () => {
 	// 1. Get the categoryId from the URL (e.g., 'cat-1')
@@ -22,7 +23,7 @@ const ProfessionalsPage = () => {
 
 			try {
 				const response = await fetch(
-					`http://localhost:5000/api/professionals/category/${categoryId}`
+					`${API_BASE_URL}/api/professionals/category/${categoryId}`
 				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch professionals");

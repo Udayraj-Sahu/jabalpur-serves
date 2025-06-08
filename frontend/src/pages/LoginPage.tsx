@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Form.css';
 import { useAuth } from '../contexts/AuthContext';
 import type { UserInfo } from '../types';
+import { API_BASE_URL } from '../config';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -19,7 +20,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch(`${API_BASE_URL}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
