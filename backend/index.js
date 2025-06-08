@@ -43,6 +43,27 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/professionals", professionalRoutes);
 app.use("/api/users", userRoutes);
 
+// --- NEW: Error Handling Middleware ---
+
+// 404 Not Found Handler
+app.use((req, res, next) => {
+	const error = new Error(`Not Found - ${req.originalUrl}`);
+	res.status(404);
+	next(error);
+});
+
+// General Error Handler
+app.use((err, req, res, next) => {
+	let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+	let message = err.message;
+
+	res.status(statusCode).json({
+		message: message,
+		// Show error stack only in development mode for security
+		stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
+	});
+});
+
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
 });
